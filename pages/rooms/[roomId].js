@@ -1,5 +1,5 @@
 import { Flex, Heading, useTheme, View } from '@aws-amplify/ui-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { withSSRContext } from 'aws-amplify'
 import { InputArea } from '../../components/InputArea'
 import { MessageList } from '../../components/Message'
@@ -19,6 +19,7 @@ function RoomPage({ roomsList, currentRoomData, username }) {
 	const [messages, setMessages] = useState([])
 	const [rooms, setRooms] = useState(roomsList)
 	const [currentRoom, setCurrentRoom] = useState(currentRoomData)
+	const fileInputRef = useRef(null)  // this is used to reference the file input element in the InputArea component
 
 	const handleMessageSend = async (newMessage, imgKey) => {
 		const createNewMsg = async (text, imageId) => {
@@ -102,7 +103,7 @@ function RoomPage({ roomsList, currentRoomData, username }) {
 							</Heading>
 							<Flex direction="column" height="85vh">
 								<MessageList messages={messages} myUsername={username} />
-								<InputArea onMessageSend={handleMessageSend} />
+								<InputArea onMessageSend={handleMessageSend} fileInputRef={fileInputRef} />
 							</Flex>
 						</View>
 					</View>

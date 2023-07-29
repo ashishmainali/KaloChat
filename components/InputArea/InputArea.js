@@ -8,7 +8,7 @@ import {
 import { Storage } from 'aws-amplify'
 import { useState } from 'react'
 
-export const InputArea = ({ onMessageSend }) => {
+export const InputArea = ({ onMessageSend, fileInputRef }) => {
 	const [selectedImage, setSelectedImage] = useState(null)
 	const [messageText, setMessageText] = useState('')
 
@@ -29,6 +29,8 @@ export const InputArea = ({ onMessageSend }) => {
 
 		onMessageSend(messageText, key)
 		setMessageText('')
+		setSelectedImage(null)
+		if (fileInputRef.current) fileInputRef.current.value = "" // this clears the file input element
 	}
 	return (
 		<View
@@ -51,6 +53,7 @@ export const InputArea = ({ onMessageSend }) => {
 					<Flex justifyContent={'space-between'} alignItems={'center'}>
 						<TextField
 							type={'file'}
+							ref={fileInputRef}
 							onChange={(e) => setSelectedImage(e.target.files[0])}
 						/>
 						<Button variation="primary" type="submit">
