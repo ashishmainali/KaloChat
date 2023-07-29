@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kalochat-dev-213048-authRole",
+      "UnauthRoleArn": "arn:aws:iam::020652544759:role/amplify-kalochat-dev-213048-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::020652544759:role/amplify-kalochat-dev-213048-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-kalochat-dev-213048-deployment",
+      "UnauthRoleName": "amplify-kalochat-dev-213048-unauthRole",
+      "StackName": "amplify-kalochat-dev-213048",
+      "StackId": "arn:aws:cloudformation:us-east-1:020652544759:stack/amplify-kalochat-dev-213048/9399c900-2daf-11ee-92f4-0e7efab0964f",
+      "AmplifyAppId": "d1qrlhrepjk30i"
+    }
+  }
+}
